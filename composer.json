@@ -1,0 +1,20 @@
+{
+    "name": "videojuegos/zend-acl-retro",
+    "description": "Aplicación de tienda de videojuegos retro usando Zend Framework con control de acceso (ACL)",
+    "require": {
+        "php": "^8.1",
+        "laminas/laminas-mvc": "^3.3",
+        "laminas/laminas-db": "^2.20",
+        "laminas/laminas-form": "^3.19",
+        "laminas/laminas-authentication": "^2.11",
+        "laminas/laminas-permissions-acl": "^2.12",
+        "laminas/laminas-view": "^2.37",
+        "laminas/laminas-session": "^2.14",
+        "laminas/laminas-zendframework-bridge": "^1.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Application\\": "module/Application/src/Application/"
+        }
+    }
+}

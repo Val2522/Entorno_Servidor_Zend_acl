@@ -1,0 +1,20 @@
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-danger shadow-sm">
+                <div class="card-header bg-danger text-white">
+                    Error interno
+                </div>
+                <div class="card-body">
+                    <h1 class="h4 mb-3">Se produjo un error inesperado</h1>
+                    <p class="mb-0">La aplicación no pudo procesar la solicitud. Intenta de nuevo en unos minutos.</p>
+                    <?php if (isset($this->exception) && $this->exception): ?>
+                        <hr>
+                        <h2 class="h6">Detalle técnico</h2>
+                        <pre class="small bg-light p-3 rounded border"><?php echo htmlspecialchars($this->exception->getMessage()); ?></pre>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+# Dependencias de PHP
+/vendor/
+composer.lock
+
+# Base de datos
+/data/dbase.db
+/data/dbase.db.bak*
+/data/dump_*.sql
+
+# Imágenes subidas (mantener estructura)
+/data/uploads/*.jpeg
+/data/uploads/*.jpg
+/data/uploads/*.png
+!/data/uploads/.gitkeep
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+*.log
+
+# Caché de PHP
+.php_tmp/

@@ -1,0 +1,23 @@
+parameters:
+    # Ignorar errores de tipos indefinidos de Zend Framework
+    ignoreErrors:
+        - '#Undefined class Zend\\Router\\Http\\.*#'
+        - '#Undefined class Zend\\.*#'
+        - '#Call to an undefined method.*#'
+    
+    # Nivel de análisis (0-9)
+    level: 4
+    
+    # Paths a analizar
+    paths:
+        - src
+        - module
+
+    # Excluir ciertos paths
+    excludePaths:
+        - tests
+        - node_modules
+        - vendor
+
+    # PHP version
+    phpVersion: 70200

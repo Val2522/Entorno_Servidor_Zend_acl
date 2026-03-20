@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos - Administración</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">🎮 Retro Games</a>
+            <a href="/" class="btn btn-light btn-sm ms-auto">← Volver</a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1><?php echo !empty($this->esAdmin) ? '📦 Lista de pedidos (todos los usuarios)' : '📦 Mis pedidos'; ?></h1>
+
+        <?php if (!empty($this->pedidos)): ?>
+            <?php foreach ($this->pedidos as $pedido): ?>
+                <div class="card mb-3">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <span>
+                            <strong>Pedido #<?php echo (int) $pedido['id']; ?></strong>
+                            <?php if (!empty($this->esAdmin)): ?>
+                                | Usuario: <?php echo htmlspecialchars($pedido['username'] ?? ('ID ' . $pedido['usuario_id'])); ?>
+                            <?php endif; ?>
+                        </span>
+                        <span class="badge bg-success">Total: <?php echo number_format((float) $pedido['total'], 2, ',', '.'); ?>€</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted mb-3">Fecha: <?php echo htmlspecialchars($pedido['created_at']); ?></p>
+                        <div class="table-responsive">
+                            <table class="table table-sm table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Artículo</th>
+                                        <th>Cantidad</th>
+                                        <th>Precio base</th>
+                                        <th>IVA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach (($this->lineasPorPedido[$pedido['id']] ?? []) as $linea): ?>
+                                        <tr>
+                                            <td><?php echo htmlspecialchars($linea['nombre'] ?? 'Artículo eliminado'); ?></td>
+                                            <td><?php echo (int) $linea['cantidad']; ?></td>
+                                            <td><?php echo number_format((float) $linea['precio_unitario'], 2, ',', '.'); ?>€</td>
+                                            <td><?php echo (int) $linea['iva']; ?>%</td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <div class="alert alert-info">Todavía no hay pedidos registrados.</div>
+        <?php endif; ?>
+    </div>
+</body>
+</html>

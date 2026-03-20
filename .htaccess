@@ -1,0 +1,13 @@
+# Rewrite Engine
+RewriteEngine On
+
+# Set the base directory
+RewriteBase /Actividad_UT6_ZEND_acl/
+
+# Skip already existing files
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Route all requests through index.php
+RewriteRule ^ public/index.php [L]
