@@ -241,7 +241,6 @@ Revisar:
 - SERVIDOR_CONFIG.md: configuracion de servidor para dev/prod.
 - RESUMEN_PROYECTO.md: resumen ejecutivo para entrega.
 - SOLUCION_ERRORES_INTELEPHENSE.md: soporte de editor.
-- GUIA_VIDEOTUTORIAL.md: guion detallado para grabacion y discurso.
 
 ## 11. Licencia
 
